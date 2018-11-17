@@ -23,10 +23,11 @@ def progressBar(current, total, full_progbar_length):
      filled_progbar = round(frac * full_progbar_length)
      #to prevent the print function freezing from time to time
      sys.stdout.flush()
-     #special characters \r and :>7.2% are used to overwrite the previous print and have the % at the end the same length at all times, respectively
+     #special characters \r, \033 and :>7.2% are used to overwrite the previous print, make the bar green and have the % at the end the same length at all times, respectively
      print('\r \033[0;32;40m | ', '#'*filled_progbar + '-'*(full_progbar_length-filled_progbar), ' | [{:>7.2%}]'.format(frac), end ="")
 
 def function():
+    print("\033[0;32;40m Loading the files ...")
     #set the count for each iteration in the for loop
     count = 0
     #open a test file
